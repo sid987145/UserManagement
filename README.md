@@ -1,7 +1,7 @@
 To run this on your local device->
-Clone the repo
-npm install
-npm run dev
+1.Clone the repo
+2.npm install
+3.npm run dev
 
 
 Deployment Link -> https://unrivaled-dieffenbachia-7f1d96.netlify.app/
