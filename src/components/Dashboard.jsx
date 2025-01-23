@@ -22,7 +22,8 @@ function Dashboard() {
         params: { page: pagination.page, limit: pagination.limit },
       });
       setUsers(response.data);
-      setPagination((prev) => ({ ...prev, total: 20 })); // Update total users as per API
+
+      setPagination((prev) => ({ ...prev, total: 20 }));
     } catch (error) {
       alert('Error fetching users');
     }
@@ -89,12 +90,17 @@ function Dashboard() {
 
       {showForm && (
         <UserFormModal
-          newUser={newUser}
-          setNewUser={setNewUser}
-          onSubmit={handleAddOrUpdateUser}
-          onClose={() => setShowForm(false)}
-          editingUser={editingUser}
-        />
+        newUser={newUser}
+        setNewUser={setNewUser}
+        onSubmit={handleAddOrUpdateUser}
+        onClose={() => {
+          setNewUser({ name: '', email: '', department: '', age: '' }); // Reset form
+          setEditingUser(null); // Clear editing state
+          setShowForm(false);
+        }}
+        editingUser={editingUser}
+        users={users} // Pass the current users for duplicate email validation
+      />
       )}
     </div>
   );
