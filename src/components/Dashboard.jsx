@@ -22,6 +22,7 @@ function Dashboard() {
         params: { page: pagination.page, limit: pagination.limit },
       });
       setUsers(response.data);
+
       setPagination((prev) => ({ ...prev, total: 20 }));
     } catch (error) {
       alert('Error fetching users');
@@ -100,7 +101,6 @@ function Dashboard() {
         editingUser={editingUser}
         users={users} // Pass the current users for duplicate email validation
       />
-      
       )}
     </div>
   );
